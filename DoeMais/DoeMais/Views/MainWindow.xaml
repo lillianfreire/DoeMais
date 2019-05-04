@@ -1,0 +1,84 @@
+﻿<Window x:Class="DoeMais.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DoeMais"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="500" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="30"/>
+    </WindowChrome.WindowChrome>
+    <Grid>
+        <Grid VerticalAlignment="Top" Background="#4a7dcb">
+            <Label Foreground="White">DoeMais - Login</Label>
+            <StackPanel WindowChrome.IsHitTestVisibleInChrome="True" 
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right"
+                        Orientation="Horizontal"
+                        Height="30">
+                <Button Name="MinimizeWindow" Width="30" Content="-" FontSize="16" BorderThickness="0" Foreground="White" Background="Transparent" IsTabStop="False" Style="{x:Null}"/>
+                <Button Name="CloseApp"  Width="30" Content="X" BorderThickness="0" Background="#fa4141" Foreground="White" TabIndex="0" IsTabStop="False" Style="{x:Null}"/>
+            </StackPanel>
+        </Grid>
+
+        <Image Width="300"
+               Margin="0,30,0,170"
+               Stretch="Fill"
+               Source="imgs/logo.png"/>
+
+        <TextBox Name="textBox_Usuario" 
+                 Width="300"
+                 TabIndex="1"
+                 Margin="0 30 0 0"
+                 Background="Transparent"
+                 ToolTip="Usuário"/>
+        <TextBlock IsHitTestVisible="False" 
+                   Text="Usuário" 
+                   VerticalAlignment="Center" 
+                   HorizontalAlignment="Left" 
+                   Margin="110,30,0,0" 
+                   Foreground="DarkGray">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=textBox_Usuario}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+
+        <TextBox Name="textBox_Senha" Width="300"
+                 Margin="0 105 0 0"
+                 Background="Transparent"
+                 BorderThickness="0"
+                 TabIndex="2" 
+                 ToolTip="Usuário"/>
+        <TextBlock IsHitTestVisible="False" 
+                   Text="Senha" 
+                   VerticalAlignment="Center" 
+                   HorizontalAlignment="Left" 
+                   Margin="110,105,0,0" 
+                   Foreground="DarkGray">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=textBox_Senha}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+
+        <Button Name="button_entrar" Width="100" 
+                Height="45"
+                Margin="0 190 0 0"
+                Content="ENTRAR" Click="Button_entrar_Click"/>
+
+    </Grid>
+</Window>

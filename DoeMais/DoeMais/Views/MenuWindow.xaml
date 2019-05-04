@@ -1,0 +1,204 @@
+﻿<Window x:Class="DoeMais.Views.MenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DoeMais.Views"
+        mc:Ignorable="d"
+        Title="DoeMais - Menu" Background="#e5f5ff" Height="450" Width="600" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="30"/>
+    </WindowChrome.WindowChrome>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition/>
+            <RowDefinition Height="35"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.ColumnSpan="3" VerticalAlignment="Top" Background="#4a7dcb">
+            <Label Foreground="White">DoeMais - Menu</Label>
+            <StackPanel WindowChrome.IsHitTestVisibleInChrome="True" 
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right"
+                        Orientation="Horizontal"
+                        Height="30">
+                <Button Name="MinimizeWindow" Width="30" Content="-" FontSize="16" BorderThickness="0" Foreground="White" Background="Transparent" IsTabStop="False" Style="{x:Null}"/>
+                <Button Name="CloseApp"  Width="30" Content="X" BorderThickness="0" Background="#fa4141" TabIndex="0" IsTabStop="False" Foreground="White" Style="{x:Null}" />
+            </StackPanel>
+        </Grid>
+
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="3" Background="#8fd5ff"></StackPanel>
+
+        <Line Grid.Row="2"
+              Grid.Column="1"
+              X1="5" Y1="0"
+              X2="5" Y2="350"
+              Stroke="#002c70"
+              StrokeThickness="2" />
+
+        <Line Grid.Row="2"
+              Grid.Column="1"
+              X1="5" Y1="50"
+              X2="5" Y2="175"
+              Stroke="#4a7dcb"
+              StrokeThickness="5" />
+
+        <Line Grid.Row="2"
+              Grid.Column="1"
+              X1="5" Y1="175"
+              X2="5" Y2="300"
+              Stroke="#a2c7ff"
+              StrokeThickness="5" />
+
+        <Grid Name="grid_instituicao" Grid.Row="2" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="2" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition  Height="50"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="80"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="15"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Name="button_cadastrarFuncionarios" Grid.Row="1"
+                        Grid.Column="2"
+                        FontSize="16"
+                        Content="  Cadastrar &#xa;Funcionários"/>
+                <Button Name="button_consultarFuncionarios" Grid.Row="3"
+                        Grid.Column="1"
+                        FontSize="16"
+                        Content="  Consultar &#xa;Funcionários"/>
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="35"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="30"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Name="button_mensagens" Grid.Row="1"
+                        Grid.Column="1"
+                        FontSize="16"
+                        Content="Mensagens"/>
+                <Button Name="button_propaganda" Grid.Row="3"
+                        Grid.Column="1"
+                        FontSize="16"
+                        Content="Propaganda"/>
+                <Button Name="button_perfil" Grid.Row="5"
+                        Grid.Column="1"
+                        FontSize="16"
+                        Content="Perfil&amp;Itens" Click="Button_perfil_Click"/>
+            </Grid>
+        </Grid>
+
+        <Grid Name="grid_doacoes" Visibility="Hidden" Grid.Row="2" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="2" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition  Height="50"/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="5"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Name="button_registrarDoacao" Grid.Row="1"
+                        Grid.Column="1"
+                        FontSize="16"
+                        Content=" Registrar &#xa;  Doação"/>
+                <Button Name="button_checarRetiradas" Grid.Row="2"
+                        Grid.Column="2"
+                        FontSize="16"
+                        Content="  Checar &#xa;Retiradas"/>
+                <Button Name="button_checkin" Grid.Row="3"
+                        Grid.Column="1"
+                        FontSize="16"
+                        Content="Check-in"/>
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="35"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="30"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Name="button_estoque" Grid.Row="1"
+                        Grid.Column="1"
+                        FontSize="16"
+                        Content="Estoque"/>
+                <Button Name="button_triagem" Grid.Row="3"
+                        Grid.Column="1"
+                        FontSize="16"
+                        Content="Triagem"/>
+                <Button Name="button_saida" Grid.Row="5"
+                        Grid.Column="1"
+                        FontSize="16"
+                        Content="Saída"/>
+            </Grid>
+        </Grid>
+
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="3" Background="#8fd5ff">
+            <Grid ShowGridLines="false" Height="35">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="260"/>
+                </Grid.ColumnDefinitions>
+                <Button Name="button_instituicao" Content="INSTITUIÇÃO" Style="{StaticResource button_gradient}" Click="Button_instituicao_Click"/>
+                <StackPanel Grid.Column="1" Background="#b6e4ff"/>
+                <Button Name="button_doacoes" Grid.Column="2" Content="DOAÇÕES" Style="{StaticResource button_transparent}" Click="Button_doacoes_Click"/>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>
