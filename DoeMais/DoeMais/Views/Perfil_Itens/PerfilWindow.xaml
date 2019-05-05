@@ -41,11 +41,14 @@
                   Grid.Row="1"
                   Grid.Column="1"
                   Margin="0 5 0 0"
+                  TabIndex="1"
                   Content="Alterar"/>
 
         <GroupBox Name="groupBox_dadosGerais" 
                   Grid.Row="2"
                   Grid.Column="1"
+                  BorderThickness="2"
+                  BorderBrush="#444444"
                   Header="Dados Gerais">
             <Grid>
                 <Grid.RowDefinitions>
@@ -56,22 +59,23 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="60"/>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="90"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Label Content="CPF:" Margin="0 -5 0 0" HorizontalContentAlignment="Right"/>
-                <TextBox Grid.Column="1" Name="textBox_CPF"
+
+                <Label Content="CPF:" Margin="0 -5 0 0" HorizontalContentAlignment="Center"/>
+                <TextBox Grid.Column="1" 
+                         Name="textBox_CPF"
                          TabIndex="2"
                          Height="20"
-                         Background="Transparent"
-                         ToolTip="Usuário"
+                         ToolTip="Ex:123 456 789 10"
                          MaxLength="11"
                          PreviewTextInput="NumberValidationTextBox"/>
-                <TextBlock Grid.Column="1" IsHitTestVisible="False" 
-                           Text="CPF *somente nºs" 
-                           Margin="10 0 0 0"
-                           VerticalAlignment="Center" 
+                <TextBlock Grid.Column="1" IsHitTestVisible="False"
+                           Text="Somente números" 
+                           VerticalAlignment="Center"
                            HorizontalAlignment="Left"
+                           Margin="10 0 0 0"
                            Foreground="DarkGray">
                     <TextBlock.Style>
                         <Style TargetType="{x:Type TextBlock}">
@@ -84,7 +88,206 @@
                         </Style>
                     </TextBlock.Style>
                 </TextBlock>
+
+                <Label Grid.Row="1" Content="Telefone:" Margin="0 -5 0 0" HorizontalContentAlignment="Center"/>
+                <TextBox Grid.Row="1" 
+                         Grid.Column="1" 
+                         Name="textBox_telefoneA"
+                         TabIndex="3"
+                         Height="20"
+                         ToolTip="00 0000 0000 / 00 90000 0000"
+                         MaxLength="13"
+                         PreviewTextInput="NumberValidationTextBox"/>
+                <TextBlock Grid.Column="1" Grid.Row="1" IsHitTestVisible="False"
+                           Text="Somente números" 
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="10 0 0 0"
+                           Foreground="DarkGray">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=textBox_telefoneA}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <Label Grid.Row="2" Content="Telefone:" Margin="0 -5 0 0" HorizontalContentAlignment="Center"/>
+                <TextBox Grid.Row="2" 
+                         Grid.Column="1" 
+                         Name="textBox_telefoneB"
+                         TabIndex="4"
+                         Height="20"
+                         Background="Transparent"
+                         ToolTip="00 0000 0000 / 00 90000 0000"
+                         MaxLength="13"
+                         PreviewTextInput="NumberValidationTextBox"/>
+                <TextBlock Grid.Column="1" Grid.Row="2" IsHitTestVisible="False"
+                           Text="Somente números" 
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="10 0 0 0"
+                           Foreground="DarkGray">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=textBox_telefoneB}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <Label Grid.Column="2" Content="Razão Social:" Margin="0 -5 0 0" HorizontalContentAlignment="Center"/>
+                <TextBox Grid.Column="3" 
+                         Name="textBox_razaoSocial"
+                         TabIndex="5"
+                         Height="20"
+                         ToolTip="Razão Social"/>
+
+                <Label Grid.Column="2" Grid.Row="1" Content="Nome Fantasia:" Margin="0 -5 0 0" HorizontalContentAlignment="Center"/>
+                <TextBox Grid.Row="1" 
+                         Grid.Column="3" 
+                         Name="textBox_nomeFantasia"
+                         TabIndex="6"
+                         Height="20"
+                         ToolTip="Nome Fantasia"/>
+
+                <Label Grid.Column="2" Grid.Row="2" Content="E-mail:" Margin="0 -5 0 0" HorizontalContentAlignment="Center"/>
+                <TextBox Grid.Row="2" 
+                         Grid.Column="3" 
+                         Name="textBox_email"
+                         TabIndex="7"
+                         Height="20"
+                         ToolTip="exemplo@domain.xyz"/>
+
             </Grid>
         </GroupBox>
+
+        <GroupBox Name="groupBox_endereco" 
+                  Grid.Row="3"
+                  Grid.Column="1"
+                  BorderThickness="2"
+                  BorderBrush="#444444"
+                  Header="Endereço">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="CEP:" Margin="0 -5 0 0" HorizontalContentAlignment="Center"/>
+                <TextBox Grid.Column="1" 
+                         Name="textBox_CEP"
+                         TabIndex="8"
+                         Height="20"
+                         ToolTip="00000 000"
+                         MaxLength="8"
+                         PreviewTextInput="NumberValidationTextBox"/>
+                <TextBlock Grid.Column="1" IsHitTestVisible="False"
+                           Text="Somente números" 
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="10 0 0 0"
+                           Foreground="DarkGray">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=textBox_CEP}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <Label Grid.Row="1" Content="UF:" Margin="0 -5 0 0" HorizontalContentAlignment="Center"/>
+                <TextBox Grid.Row="1" 
+                         Grid.Column="1" 
+                         Name="textBox_UF"
+                         IsTabStop="False"
+                         Height="20"
+                         ToolTip="UF"
+                         MaxLength="2"
+                         IsReadOnly="True"/>
+
+                <Label Grid.Column="2" Grid.Row="1" Content="Cidade:" Margin="0 -5 0 0" HorizontalContentAlignment="Center"/>
+                <TextBox Grid.Row="1" 
+                         Grid.Column="3" 
+                         Name="textBox_cidade"
+                         IsTabStop="False"
+                         Height="20"
+                         ToolTip="Cidade"
+                         IsReadOnly="True"/>
+                
+                <Label Grid.Row="1" Grid.Column="4" Content="Bairro:" Margin="0 -5 0 0" HorizontalContentAlignment="Center"/>
+                <TextBox Grid.Row="1" 
+                         Grid.Column="5" 
+                         Name="textBox_bairro"
+                         IsTabStop="False"
+                         Height="20"
+                         ToolTip="Bairro"/>
+
+                <Label Grid.Column="2" Content="Logradouro:" Margin="0 -5 0 0" HorizontalContentAlignment="Center"/>
+                <TextBox Grid.Column="3" 
+                         Grid.ColumnSpan="3"
+                         Name="textBox_logradouro"
+                         IsTabStop="False"
+                         Height="20"
+                         ToolTip="Logradouro: Av, Rua, etc."
+                         IsReadOnly="True"/>
+
+                <Label Grid.Column="0" Grid.Row="2" Content="Número:" Margin="0 -5 0 0" HorizontalContentAlignment="Center"/>
+                <TextBox Grid.Row="2" 
+                         Grid.Column="1"
+                         Grid.ColumnSpan="2"
+                         Name="textBox_numero"
+                         TabIndex="9"
+                         Height="20"
+                         ToolTip="Número"
+                         PreviewTextInput="NumberValidationTextBox"/>
+                
+                <Label Grid.Column="3" Grid.Row="2" Content="Complemento:" Margin="0 -5 0 0" HorizontalContentAlignment="Center"/>
+                <TextBox Grid.Row="2" 
+                         Grid.Column="4" 
+                         Grid.ColumnSpan="2"
+                         Name="textBox_complemento"
+                         TabIndex="9"
+                         Height="20"
+                         ToolTip="Casa x; Apt y; etc"/>
+
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Name="groupBox_resumoDaEmpresa" 
+                  Grid.Row="4"
+                  Grid.Column="1"
+                  BorderThickness="2"
+                  BorderBrush="#444444"
+                  Header="Resumo da Empresa">
+            <TextBox Name="textBox_resumoDaEmpresa"
+                     TabIndex="10"
+                     BorderThickness="2"
+                     BorderBrush="#444444"
+                     FontSize="16"
+                     Style="{x:Null}"/>
+        </GroupBox>
+        
     </Grid>
 </Window>

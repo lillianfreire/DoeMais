@@ -32,5 +32,6 @@ namespace DoeMais.Views.Perfil_Itens
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
+        
     }
 }
