@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DoeMais.Views.Perfil_Itens"
+        xmlns:userControls="clr-namespace:DoeMais.Views.UserControls"
         mc:Ignorable="d"
-        Title="DoeMais - Perfil" Background="#e5f5ff" Height="450" Width="600" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="DoeMais - Perfil" Background="White" Height="450" Width="600" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="30"/>
     </WindowChrome.WindowChrome>
@@ -235,7 +236,7 @@
                          Height="20"
                          ToolTip="Cidade"
                          IsReadOnly="True"/>
-                
+
                 <Label Grid.Row="1" Grid.Column="4" Content="Bairro:" Margin="0 -5 0 0" HorizontalContentAlignment="Center"/>
                 <TextBox Grid.Row="1" 
                          Grid.Column="5" 
@@ -262,7 +263,7 @@
                          Height="20"
                          ToolTip="Número"
                          PreviewTextInput="NumberValidationTextBox"/>
-                
+
                 <Label Grid.Column="3" Grid.Row="2" Content="Complemento:" Margin="0 -5 0 0" HorizontalContentAlignment="Center"/>
                 <TextBox Grid.Row="2" 
                          Grid.Column="4" 
@@ -288,6 +289,131 @@
                      FontSize="16"
                      Style="{x:Null}"/>
         </GroupBox>
-        
+
+        <Grid Grid.Row="5" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <GroupBox Name="groupBox_retiraEmDomicilio"
+                      BorderThickness="2"
+                      BorderBrush="#444444"
+                      Header="Retira em domicílio?">
+                
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <RadioButton Name="radioButton_retiraSim"
+                                 Content="Sim"
+                                 Margin="0 5 0 0"/>
+                    <RadioButton Name="radioButton_retiraNao"
+                                 Content="Não"
+                                 Grid.Row="1"/>
+                </Grid>
+                
+            </GroupBox>
+
+            <GroupBox Grid.Column="1" 
+                      Name="groupBox_horarioDeFuncionamento"
+                      BorderThickness="2"
+                      BorderBrush="#444444"
+                      Header="Horário de funcionamento">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Label Content="Das:" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <userControls:TimePicker Grid.Column="1"
+                                             Grid.ColumnSpan="2" 
+                                             x:Name="timePicker_das"
+                                             Height="30"/>
+                    
+                    <Label Grid.Column="3" Content="Até:" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <userControls:TimePicker Grid.Column="4"
+                                             Grid.ColumnSpan="2" 
+                                             x:Name="timePicker_ate"
+                                             Height="30"/>
+
+                    <CheckBox Grid.Row="1"
+                              Name="checkBox_domingo"
+                              Content="Domingo"
+                              VerticalAlignment="Center"/>
+                    <CheckBox Grid.Row="1"
+                              Grid.Column="1"
+                              Name="checkBox_segunda"
+                              Content="Segunda"
+                              Margin="5 0 0 0"
+                              VerticalAlignment="Center"/>
+                    <CheckBox Grid.Row="1"
+                              Grid.Column="2"
+                              Name="checkBox_terca"
+                              Content="Terça"
+                              VerticalAlignment="Center"/>
+                    <CheckBox Grid.Row="1"
+                              Grid.Column="3"
+                              Name="checkBox_quarta"
+                              Content="Quarta"
+                              VerticalAlignment="Center"/>
+                    <CheckBox Grid.Row="1"
+                              Grid.Column="4"
+                              Name="checkBox_quinta"
+                              Content="Quinta"
+                              VerticalAlignment="Center"/>
+                    <CheckBox Grid.Row="1"
+                              Grid.Column="5"
+                              Name="checkBox_sexta"
+                              Content="Sexta"
+                              VerticalAlignment="Center"/>
+                    <CheckBox Grid.Row="1"
+                              Grid.Column="6"
+                              Name="checkBox_sabado"
+                              Content="Sábado"
+                              VerticalAlignment="Center"/>
+                </Grid>
+            </GroupBox>
+        </Grid>
+
+        <Grid Grid.Row="6" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+
+            <Border CornerRadius="5"
+                    BorderThickness="2"
+                    BorderBrush="#444444"
+                    Background="#4a8dcb"
+                    Width="100"
+                    Margin="0 2 0 5"
+                    HorizontalAlignment="Left">
+                <Button Name="button_selecionarItens"
+                    Content="Selecionar Itens"
+                    Width="100"
+                    HorizontalAlignment="Left"
+                    BorderThickness="0" 
+                    Background="Transparent" 
+                    Cursor="Hand"
+                    Style="{x:Null}"/>
+            </Border>
+
+            <Button Grid.Column="1"
+                    Name="button_salvar"
+                    Content="Salvar"
+                    Margin="0 2 0 5"/>
+        </Grid>
     </Grid>
 </Window>
