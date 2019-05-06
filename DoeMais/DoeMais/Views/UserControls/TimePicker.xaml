@@ -1,73 +1,91 @@
-﻿<UserControl x:Class="DoeMais.Views.UserControls.TimePicker"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:DoeMais.Views.UserControls"
-             mc:Ignorable="d" 
-             Height="auto" Width="auto">
-    <Grid Height="auto" Width="auto" Background="White">
-        <Border BorderThickness="1"
-                BorderBrush="Black">
-            <Grid Height="auto" Width="auto" Background="White">
+﻿<UserControl
+    x:Class="DoeMais.Views.UserControls.TimePicker"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:DoeMais.Views.UserControls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Width="auto"
+    Height="auto"
+    mc:Ignorable="d">
+    <Grid
+        Width="auto"
+        Height="auto"
+        Background="White">
+        <Border BorderBrush="Black" BorderThickness="1">
+            <Grid
+                Width="auto"
+                Height="auto"
+                Background="White">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="25" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
+                    <RowDefinition />
+                    <RowDefinition />
                 </Grid.RowDefinitions>
-                
-                <TextBox Grid.RowSpan="2"
-                         Name="textBox_hora"
-                         Text="00"
-                         HorizontalContentAlignment="Center"
-                         VerticalContentAlignment="Center"
-                         MinWidth="50"
-                         Style="{x:Null}"
-                         BorderThickness="0"
-                         PreviewMouseWheel="setTimeScroll"
-                         PreviewTextInput="NumberValidationTextBox"
-                         MouseLeave="TMouseLeave"/>
 
-                <Label Grid.Column="1"
-                       Grid.RowSpan="2"
-                       Content=":"
-                       HorizontalContentAlignment="Center"
-                       VerticalContentAlignment="Center"/>
+                <TextBox
+                    Name="textBox_hora"
+                    Grid.RowSpan="2"
+                    MinWidth="50"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    BorderThickness="0"
+                    IsTabStop="False"
+                    MaxLength="2"
+                    MouseLeave="TMouseLeave"
+                    PreviewMouseWheel="setTimeScroll"
+                    PreviewTextInput="NumberValidationTextBox"
+                    Style="{x:Null}"
+                    Text="00" />
 
-                <TextBox Grid.Column="2" 
-                         Grid.RowSpan="2"
-                         Name="textBox_minuto"
-                         Text="00"
-                         HorizontalContentAlignment="Center"
-                         VerticalContentAlignment="Center"
-                         MinWidth="50"
-                         Style="{x:Null}"
-                         BorderThickness="0"
-                         PreviewMouseWheel="setTimeScroll"
-                         PreviewTextInput="NumberValidationTextBox"
-                         MouseLeave="TMouseLeave"/>
+                <Label
+                    Grid.RowSpan="2"
+                    Grid.Column="1"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Content=":" />
 
-                <Button Grid.Column="3"
-                        Name="button_up"
-                        Content="+"
-                        HorizontalContentAlignment="Center"
-                        VerticalContentAlignment="Center"
-                        Click="upButton"
-                        Style="{x:Null}"/>
+                <TextBox
+                    Name="textBox_minuto"
+                    Grid.RowSpan="2"
+                    Grid.Column="2"
+                    MinWidth="50"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    BorderThickness="0"
+                    IsTabStop="False"
+                    MaxLength="2"
+                    MouseLeave="TMouseLeave"
+                    PreviewMouseWheel="setTimeScroll"
+                    PreviewTextInput="NumberValidationTextBox"
+                    Style="{x:Null}"
+                    Text="00" />
 
-                <Button Grid.Column="3"
-                        Grid.Row="1"
-                        Name="button_down"
-                        Content="-"
-                        HorizontalContentAlignment="Center"
-                        VerticalContentAlignment="Center"
-                        Click="downButton"
-                        Style="{x:Null}"/>
+                <Button
+                    Name="button_up"
+                    Grid.Column="3"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Click="upButton"
+                    Content="+"
+                    Style="{x:Null}"
+                    TabIndex="{Binding Path=TabIndex, RelativeSource={RelativeSource AncestorType={x:Type local:TimePicker}}}" />
+
+                <Button
+                    Name="button_down"
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Click="downButton"
+                    Content="-"
+                    Style="{x:Null}"
+                    TabIndex="{Binding Path=TabIndex, RelativeSource={RelativeSource AncestorType={x:Type local:TimePicker}}}" />
             </Grid>
         </Border>
     </Grid>
