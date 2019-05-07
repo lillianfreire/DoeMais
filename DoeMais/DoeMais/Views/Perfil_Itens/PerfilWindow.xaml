@@ -1,90 +1,572 @@
-﻿<Window x:Class="DoeMais.Views.Perfil_Itens.PerfilWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DoeMais.Views.Perfil_Itens"
-        mc:Ignorable="d"
-        Title="DoeMais - Perfil" Background="#e5f5ff" Height="450" Width="600" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+﻿<Window
+    x:Class="DoeMais.Views.Perfil_Itens.PerfilWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:DoeMais.Views.Perfil_Itens"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:userControls="clr-namespace:DoeMais.Views.UserControls"
+    Title="DoeMais - Perfil"
+    Width="600"
+    Height="450"
+    Background="White"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
     <WindowChrome.WindowChrome>
-        <WindowChrome CaptionHeight="30"/>
+        <WindowChrome CaptionHeight="30" />
     </WindowChrome.WindowChrome>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="25"/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="25" />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="40" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10"/>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="10" />
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.ColumnSpan="3" VerticalAlignment="Top" Background="#4a7dcb">
+        <Grid
+            Grid.ColumnSpan="3"
+            VerticalAlignment="Top"
+            Background="#4a7dcb">
             <Label Foreground="White">DoeMais - Perfil</Label>
-            <StackPanel WindowChrome.IsHitTestVisibleInChrome="True" 
-                        VerticalAlignment="Center"
-                        HorizontalAlignment="Right"
-                        Orientation="Horizontal"
-                        Height="30">
-                <Button Name="MinimizeWindow" Width="30" Content="-" FontSize="16" BorderThickness="0" Foreground="White" Background="Transparent" IsTabStop="False" Style="{x:Null}"/>
-                <Button Name="CloseApp"  Width="30" Content="X" BorderThickness="0" Background="#fa4141" TabIndex="0" Foreground="White" IsTabStop="False" Style="{x:Null}"/>
+            <StackPanel
+                Height="30"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Orientation="Horizontal"
+                WindowChrome.IsHitTestVisibleInChrome="True">
+                <Button
+                    Name="MinimizeWindow"
+                    Width="30"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Content="-"
+                    FontSize="16"
+                    Foreground="White"
+                    IsTabStop="False"
+                    Style="{x:Null}" />
+                <Button
+                    Name="CloseApp"
+                    Width="30"
+                    Background="#fa4141"
+                    BorderThickness="0"
+                    Content="X"
+                    Foreground="White"
+                    IsTabStop="False"
+                    Style="{x:Null}"
+                    TabIndex="0" />
             </StackPanel>
         </Grid>
 
-        <CheckBox Name="checkBox_alterar" 
-                  Grid.Row="1"
-                  Grid.Column="1"
-                  Margin="0 5 0 0"
-                  Content="Alterar"/>
+        <CheckBox
+            Name="checkBox_alterar"
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="0,5,0,0"
+            Content="Alterar"
+            TabIndex="1" />
 
-        <GroupBox Name="groupBox_dadosGerais" 
-                  Grid.Row="2"
-                  Grid.Column="1"
-                  Header="Dados Gerais">
+        <GroupBox
+            Name="groupBox_dadosGerais"
+            Grid.Row="2"
+            Grid.Column="1"
+            BorderBrush="#444444"
+            BorderThickness="2"
+            Header="Dados Gerais">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="60"/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Label Content="CPF:" Margin="0 -5 0 0" HorizontalContentAlignment="Right"/>
-                <TextBox Grid.Column="1" Name="textBox_CPF"
-                         TabIndex="2"
-                         Height="20"
-                         Background="Transparent"
-                         ToolTip="Usuário"
-                         MaxLength="11"
-                         PreviewTextInput="NumberValidationTextBox"/>
-                <TextBlock Grid.Column="1" IsHitTestVisible="False" 
-                           Text="CPF *somente nºs" 
-                           Margin="10 0 0 0"
-                           VerticalAlignment="Center" 
-                           HorizontalAlignment="Left"
-                           Foreground="DarkGray">
+
+                <Label
+                    Margin="0,-5,0,0"
+                    HorizontalContentAlignment="Center"
+                    Content="CPF:" />
+                <TextBox
+                    Name="textBox_CPF"
+                    Grid.Column="1"
+                    Height="20"
+                    MaxLength="11"
+                    PreviewTextInput="NumberValidationTextBox"
+                    TabIndex="2"
+                    ToolTip="Ex:123 456 789 10" />
+                <TextBlock
+                    Grid.Column="1"
+                    Margin="10,0,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Foreground="DarkGray"
+                    IsHitTestVisible="False"
+                    Text="Somente números">
                     <TextBlock.Style>
                         <Style TargetType="{x:Type TextBlock}">
-                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Setter Property="Visibility" Value="Collapsed" />
                             <Style.Triggers>
                                 <DataTrigger Binding="{Binding Text, ElementName=textBox_CPF}" Value="">
-                                    <Setter Property="Visibility" Value="Visible"/>
+                                    <Setter Property="Visibility" Value="Visible" />
                                 </DataTrigger>
                             </Style.Triggers>
                         </Style>
                     </TextBlock.Style>
                 </TextBlock>
+
+                <Label
+                    Grid.Row="1"
+                    Margin="0,-5,0,0"
+                    HorizontalContentAlignment="Center"
+                    Content="Telefone:" />
+                <TextBox
+                    Name="textBox_telefoneA"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Height="20"
+                    MaxLength="13"
+                    PreviewTextInput="NumberValidationTextBox"
+                    TabIndex="3"
+                    ToolTip="00 0000 0000 / 00 90000 0000" />
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="10,0,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Foreground="DarkGray"
+                    IsHitTestVisible="False"
+                    Text="Somente números">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=textBox_telefoneA}" Value="">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <Label
+                    Grid.Row="2"
+                    Margin="0,-5,0,0"
+                    HorizontalContentAlignment="Center"
+                    Content="Telefone:" />
+                <TextBox
+                    Name="textBox_telefoneB"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Height="20"
+                    Background="Transparent"
+                    MaxLength="13"
+                    PreviewTextInput="NumberValidationTextBox"
+                    TabIndex="4"
+                    ToolTip="00 0000 0000 / 00 90000 0000" />
+                <TextBlock
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Margin="10,0,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Foreground="DarkGray"
+                    IsHitTestVisible="False"
+                    Text="Somente números">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=textBox_telefoneB}" Value="">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <Label
+                    Grid.Column="2"
+                    Margin="0,-5,0,0"
+                    HorizontalContentAlignment="Center"
+                    Content="Razão Social:" />
+                <TextBox
+                    Name="textBox_razaoSocial"
+                    Grid.Column="3"
+                    Height="20"
+                    TabIndex="5"
+                    ToolTip="Razão Social" />
+
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Margin="0,-5,0,0"
+                    HorizontalContentAlignment="Center"
+                    Content="Nome Fantasia:" />
+                <TextBox
+                    Name="textBox_nomeFantasia"
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    Height="20"
+                    TabIndex="6"
+                    ToolTip="Nome Fantasia" />
+
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    Margin="0,-5,0,0"
+                    HorizontalContentAlignment="Center"
+                    Content="E-mail:" />
+                <TextBox
+                    Name="textBox_email"
+                    Grid.Row="2"
+                    Grid.Column="3"
+                    Height="20"
+                    TabIndex="7"
+                    ToolTip="exemplo@domain.xyz" />
+
             </Grid>
         </GroupBox>
+
+        <GroupBox
+            Name="groupBox_endereco"
+            Grid.Row="3"
+            Grid.Column="1"
+            BorderBrush="#444444"
+            BorderThickness="2"
+            Header="Endereço">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Label
+                    Margin="0,-5,0,0"
+                    HorizontalContentAlignment="Center"
+                    Content="CEP:" />
+                <TextBox
+                    Name="textBox_CEP"
+                    Grid.Column="1"
+                    Height="20"
+                    MaxLength="8"
+                    PreviewTextInput="NumberValidationTextBox"
+                    TabIndex="8"
+                    ToolTip="00000 000" />
+                <TextBlock
+                    Grid.Column="1"
+                    Margin="10,0,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Foreground="DarkGray"
+                    IsHitTestVisible="False"
+                    Text="Somente números">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=textBox_CEP}" Value="">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <Label
+                    Grid.Row="1"
+                    Margin="0,-5,0,0"
+                    HorizontalContentAlignment="Center"
+                    Content="UF:" />
+                <TextBox
+                    Name="textBox_UF"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Height="20"
+                    IsReadOnly="True"
+                    IsTabStop="False"
+                    MaxLength="2"
+                    ToolTip="UF" />
+
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Margin="0,-5,0,0"
+                    HorizontalContentAlignment="Center"
+                    Content="Cidade:" />
+                <TextBox
+                    Name="textBox_cidade"
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    Height="20"
+                    IsReadOnly="True"
+                    IsTabStop="False"
+                    ToolTip="Cidade" />
+
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="4"
+                    Margin="0,-5,0,0"
+                    HorizontalContentAlignment="Center"
+                    Content="Bairro:" />
+                <TextBox
+                    Name="textBox_bairro"
+                    Grid.Row="1"
+                    Grid.Column="5"
+                    Height="20"
+                    IsTabStop="False"
+                    ToolTip="Bairro" />
+
+                <Label
+                    Grid.Column="2"
+                    Margin="0,-5,0,0"
+                    HorizontalContentAlignment="Center"
+                    Content="Logradouro:" />
+                <TextBox
+                    Name="textBox_logradouro"
+                    Grid.Column="3"
+                    Grid.ColumnSpan="3"
+                    Height="20"
+                    IsReadOnly="True"
+                    IsTabStop="False"
+                    ToolTip="Logradouro: Av, Rua, etc." />
+
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Margin="0,-5,0,0"
+                    HorizontalContentAlignment="Center"
+                    Content="Número:" />
+                <TextBox
+                    Name="textBox_numero"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    Height="20"
+                    PreviewTextInput="NumberValidationTextBox"
+                    TabIndex="9"
+                    ToolTip="Número" />
+
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="3"
+                    Margin="0,-5,0,0"
+                    HorizontalContentAlignment="Center"
+                    Content="Complemento:" />
+                <TextBox
+                    Name="textBox_complemento"
+                    Grid.Row="2"
+                    Grid.Column="4"
+                    Grid.ColumnSpan="2"
+                    Height="20"
+                    TabIndex="9"
+                    ToolTip="Casa x; Apt y; etc" />
+
+            </Grid>
+        </GroupBox>
+
+        <GroupBox
+            Name="groupBox_resumoDaEmpresa"
+            Grid.Row="4"
+            Grid.Column="1"
+            BorderBrush="#444444"
+            BorderThickness="2"
+            Header="Resumo da Empresa">
+            <TextBox
+                Name="textBox_resumoDaEmpresa"
+                BorderBrush="#444444"
+                BorderThickness="2"
+                FontSize="16"
+                Style="{x:Null}"
+                TabIndex="10"
+                ToolTip="Coloque aqui o resumo da sua empresa" />
+        </GroupBox>
+
+        <Grid Grid.Row="5" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <GroupBox
+                Name="groupBox_retiraEmDomicilio"
+                BorderBrush="#444444"
+                BorderThickness="2"
+                Header="Retira em domicílio?">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <RadioButton
+                        Name="radioButton_retiraSim"
+                        Margin="0,5,0,0"
+                        Content="Sim"
+                        TabIndex="11"
+                        ToolTip="Selecione sim se a instituição retira em dimicílio" />
+                    <RadioButton
+                        Name="radioButton_retiraNao"
+                        Grid.Row="1"
+                        Content="Não"
+                        TabIndex="12"
+                        ToolTip="Selecione NÃO se a instituição NÃO retira em dimicílio" />
+                </Grid>
+
+            </GroupBox>
+
+            <GroupBox
+                Name="groupBox_horarioDeFuncionamento"
+                Grid.Column="1"
+                BorderBrush="#444444"
+                BorderThickness="2"
+                Header="Horário de funcionamento">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70" />
+                        <ColumnDefinition Width="70" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="60" />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Label
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="Das:" />
+                    <userControls:TimePicker
+                        x:Name="timePicker_das"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        Height="30"
+                        TabIndex="13" />
+
+                    <Label
+                        Grid.Column="3"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="Até:" />
+                    <userControls:TimePicker
+                        x:Name="timePicker_ate"
+                        Grid.Column="4"
+                        Grid.ColumnSpan="2"
+                        Height="30"
+                        TabIndex="14" />
+
+                    <CheckBox
+                        Name="checkBox_domingo"
+                        Grid.Row="1"
+                        VerticalAlignment="Center"
+                        Content="Domingo"
+                        TabIndex="15" />
+                    <CheckBox
+                        Name="checkBox_segunda"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="5,0,0,0"
+                        VerticalAlignment="Center"
+                        Content="Segunda"
+                        TabIndex="16" />
+                    <CheckBox
+                        Name="checkBox_terca"
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        VerticalAlignment="Center"
+                        Content="Terça"
+                        TabIndex="17" />
+                    <CheckBox
+                        Name="checkBox_quarta"
+                        Grid.Row="1"
+                        Grid.Column="3"
+                        VerticalAlignment="Center"
+                        Content="Quarta"
+                        TabIndex="18" />
+                    <CheckBox
+                        Name="checkBox_quinta"
+                        Grid.Row="1"
+                        Grid.Column="4"
+                        VerticalAlignment="Center"
+                        Content="Quinta"
+                        TabIndex="19" />
+                    <CheckBox
+                        Name="checkBox_sexta"
+                        Grid.Row="1"
+                        Grid.Column="5"
+                        VerticalAlignment="Center"
+                        Content="Sexta"
+                        TabIndex="20" />
+                    <CheckBox
+                        Name="checkBox_sabado"
+                        Grid.Row="1"
+                        Grid.Column="6"
+                        VerticalAlignment="Center"
+                        Content="Sábado"
+                        TabIndex="21" />
+                </Grid>
+            </GroupBox>
+        </Grid>
+
+        <Grid Grid.Row="6" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="100" />
+            </Grid.ColumnDefinitions>
+
+            <Border
+                Width="100"
+                Margin="0,2,0,5"
+                HorizontalAlignment="Left"
+                Background="#4a8dcb"
+                BorderBrush="#444444"
+                BorderThickness="2"
+                CornerRadius="5">
+                <Button
+                    Name="button_selecionarItens"
+                    Width="100"
+                    HorizontalAlignment="Left"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Content="Selecionar Itens"
+                    Cursor="Hand"
+                    Style="{x:Null}"
+                    TabIndex="22" />
+            </Border>
+
+            <Button
+                Name="button_salvar"
+                Grid.Column="1"
+                Margin="0,2,0,5"
+                Content="Salvar"
+                TabIndex="23" />
+        </Grid>
     </Grid>
 </Window>
